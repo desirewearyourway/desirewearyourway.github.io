@@ -1,74 +1,147 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head> <meta name="google-site-verification" content="XOcjF_MktMJT60QJ523V1RPaZScADaUiifnWFWYtLn0" />
+<head>
+  <meta name="google-site-verification" content="XOcjF_MktMJT60QJ523V1RPaZScADaUiifnWFWYtLn0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DESIRE | Wear Your Way</title> 
-<meta name="description" content="Discover DESIRE — Wear Your Way. Explore aesthetic, everyday and statement T-shirts made to express your unique style.">
+  <meta name="description" content="Discover DESIRE — Wear Your Way. Explore aesthetic and statement T-shirts made to express your unique style.">
+  <meta name="theme-color" content="#f6efff">
+  <title>DESIRE | Wear Your Way</title>
   <style>
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #faf7ff;
+      background: #fcfaff;
       color: #24152f;
     }
     header {
-      padding: 24px 8%;
+      padding: 22px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: white;
+      gap: 20px;
+      background: #fff;
+      border-bottom: 1px solid #eee5f7;
     }
-    .logo { font-size: 27px; font-weight: 900; letter-spacing: 4px; }
-    .tagline { font-size: 11px; letter-spacing: 2px; }
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 5px;
+    }
+    .tagline {
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-top: 5px;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; }
     nav a {
-      margin-left: 18px;
       color: #24152f;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
     }
+    nav a:hover { color: #9870bd; }
     .hero {
+      padding: 95px 20px 85px;
       text-align: center;
-      padding: 90px 20px;
-      background: #e9dcf6;
+      background: linear-gradient(135deg, #f3eaff, #e3d1f5);
     }
-    .hero p { letter-spacing: 4px; font-size: 12px; }
-    h1 { font-size: clamp(45px, 9vw, 90px); margin: 15px 0; }
-    .hero h2 { font-weight: 400; }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(42px, 8vw, 82px);
+      letter-spacing: -2px;
+      margin: 20px 0;
+    }
+    .hero h2 { font-weight: 400; font-size: 20px; }
+    .hero-copy {
+      max-width: 480px;
+      margin: 15px auto;
+      line-height: 1.7;
+      color: #574562;
+    }
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: #24152f;
+      margin-top: 22px;
+      padding: 15px 27px;
+      background: #291936;
       color: white;
       text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      border: 1px solid #291936;
+      transition: .2s;
     }
-    section { padding: 55px 8%; text-align: center; }
+    .btn:hover { background: #74518e; border-color: #74518e; }
+    section { padding: 65px 7%; text-align: center; }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #8864a6;
+    }
+    section h2 { font-size: 30px; letter-spacing: 1px; }
+    .intro {
+      max-width: 550px;
+      margin: 0 auto;
+      color: #6a5b70;
+      line-height: 1.7;
+    }
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
-      margin-top: 30px;
+      margin-top: 35px;
     }
     .product {
-      background: white;
-      padding: 20px;
+      background: #fff;
+      padding: 14px 14px 24px;
+      border: 1px solid #eee5f7;
+      text-align: left;
     }
-    .shirt {
-      background: #f0e9f5;
-      min-height: 220px;
+    .product-art {
+      min-height: 240px;
       display: grid;
       place-items: center;
-      font-size: 70px;
+      background: #f1e8fa;
+      font-size: 90px;
     }
-    .product h3 { letter-spacing: 2px; }
+    .product:nth-child(2) .product-art { background: #eee9f2; }
+    .product:nth-child(3) .product-art { background: #f6eaf0; }
+    .product h3 {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      margin: 20px 0 8px;
+    }
+    .product p { font-size: 13px; color: #74667c; line-height: 1.6; }
+    .note { font-size: 11px; color: #88788f; }
+    .about { background: #f3ecfa; }
+    .about p {
+      max-width: 620px;
+      margin: 12px auto;
+      line-height: 1.8;
+      color: #5c4b67;
+    }
+    .contact p { color: #6a5b70; line-height: 1.7; }
     footer {
       background: #24152f;
       color: white;
-      padding: 35px 20px;
       text-align: center;
+      padding: 35px 20px;
+    }
+    footer .logo { font-size: 23px; }
+    footer p { font-size: 11px; letter-spacing: 2px; }
+    @media (max-width: 650px) {
+      header { flex-direction: column; text-align: center; }
+      nav { justify-content: center; gap: 15px; }
+      .hero { padding: 70px 18px; }
+      .products { grid-template-columns: 1fr; }
+      .product-art { min-height: 210px; }
+      section { padding: 50px 6%; }
     }
   </style>
 </head>
@@ -81,59 +154,65 @@
     <nav>
       <a href="#home">Home</a>
       <a href="#collection">Collection</a>
-      <a href="#about">About</a>
+      <a href="#about">Our Story</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <div class="hero" id="home">
-      <p>YOUR STYLE. YOUR RULES.</p>
-      <h1>BE UNAPOLOGETIC.</h1>
+      <p class="eyebrow">Your style. Your rules.</p>
+      <h1>BE<br>UNAPOLOGETIC.</h1>
       <h2>Wear what feels like you.</h2>
-      <a class="btn" href="#collection">EXPLORE COLLECTION</a>
+      <p class="hero-copy">Everyday essentials. A little attitude. A style that's entirely yours.</p>
+      <a class="btn" href="#collection">EXPLORE THE COLLECTION</a>
     </div>
 
     <section id="collection">
-      <p>MADE FOR YOUR EVERYDAY</p>
-      <h2>OUR COLLECTION</h2>
+      <p class="section-label">MADE FOR YOUR EVERYDAY</p>
+      <h2>THE DESIRE EDIT</h2>
+      <p class="intro">Easy-to-wear styles for every mood. Find your look and make it your own.</p>
       <div class="products">
-        <div class="product">
-          <div class="shirt">👕</div>
+        <article class="product">
+          <div class="product-art">👕</div>
           <h3>THE EVERYDAY TEE</h3>
-          <p>Simple. Essential. You.</p>
-        </div>
-        <div class="product">
-          <div class="shirt">✦</div>
+          <p>Minimal, versatile and ready for every day.</p>
+          <span class="note">DESIGN PREVIEW</span>
+        </article>
+        <article class="product">
+          <div class="product-art">✦</div>
           <h3>THE STATEMENT TEE</h3>
-          <p>Let your style speak.</p>
-        </div>
-        <div class="product">
-          <div class="shirt">♡</div>
+          <p>For the days you want your style to speak.</p>
+          <span class="note">DESIGN PREVIEW</span>
+        </article>
+        <article class="product">
+          <div class="product-art">♡</div>
           <h3>THE AESTHETIC TEE</h3>
-          <p>Made to express you.</p>
-        </div>
+          <p>Soft vibes. Individual style. Your own story.</p>
+          <span class="note">DESIGN PREVIEW</span>
+        </article>
       </div>
     </section>
 
-    <section id="about">
-      <h2>MORE THAN A T-SHIRT.</h2>
-      <p>DESIRE is about confidence, individuality and wearing your own story.</p>
-      <p>Your style. Your identity. Your way.</p>
+    <section class="about" id="about">
+      <p class="section-label">MORE THAN WHAT YOU WEAR</p>
+      <h2>YOUR STYLE. YOUR IDENTITY.</h2>
+      <p>DESIRE is built around confidence, individuality and the freedom to express yourself.</p>
+      <p>No rules to follow. Just a style that feels like you.</p>
     </section>
 
-    <section id="contact">
+    <section class="contact" id="contact">
+      <p class="section-label">STAY CONNECTED</p>
       <h2>LET'S CONNECT</h2>
-      <p>Interested in DESIRE? Get in touch with us.</p>
-      <a class="btn" href="mailto:hello@example.com">CONTACT US</a>
+      <p>Have a question about DESIRE? We'd love to hear from you.</p>
+      <p class="note">Contact details will be added here soon.</p>
     </section>
   </main>
 
   <footer>
-    <h2>DESIRE</h2>
+    <div class="logo">DESIRE</div>
     <p>WEAR YOUR WAY.</p>
-    <p>© 2026 DESIRE. All rights reserved.</p>
+    <p>© 2026 DESIRE. ALL RIGHTS RESERVED.</p>
   </footer>
 </body>
 </html>
-
