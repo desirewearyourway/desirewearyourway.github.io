@@ -62,12 +62,22 @@
       gap: 22px;
       margin-top: 35px;
     }
-    .product {
-      background: #fff;
-      padding: 14px 14px 24px;
-      border: 1px solid #eee5f7;
-      text-align: left;
-    }
+   
+     .product {
+  background: #fff;
+  padding: 14px 14px 24px;
+  border: 1px solid #eee5f7;
+  border-radius: 12px;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(55, 30, 75, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+ box-shadow: 0 10px 26px rgba(55, 30, 75, 0.12);
+}
     .product-art {
       min-height: 240px;
       display: grid;
