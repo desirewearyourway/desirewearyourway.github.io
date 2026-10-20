@@ -76,30 +76,33 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.product:hover {
-  transform: translateY(-4px);
- box-shadow: 0 10px 26px rgba(55, 30, 75, 0.12);
-}
-    .product-art {
-      min-height: 240px;
-      display: grid;
-      place-items: center;
-background: linear-gradient(135deg, #f8f2ff, #eadcf8);      overflow: hidden;
-    }
-    .product-art img {
-      width: 100%;
-      height: 240px;
-      object-fit: contain;
-      cursor: zoom-in;
-    }
-   .product:nth-child(2) .product-art {
+.product-art {
+  height: 240px;
+  display: grid;
+  place-items: center;
   background: linear-gradient(135deg, #f8f2ff, #eadcf8);
+  overflow: hidden;
 }
-    .product:nth-child(3) .product-art {
-  background: linear-gradient(135deg, #f8f2ff, #eadcf8);
+
+.product-art img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  cursor: zoom-in;
 }
-    .product h3 { font-size: 13px; letter-spacing: 1.5px; margin: 20px 0 8px; }
-    .product p { font-size: 13px; color: #74667c; line-height: 1.6; }
+
+.product h3 {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+.product p {
+  font-size: 13px;
+  color: #74667c;
+  line-height: 1.6;
+}
     .note { font-size: 11px; color: #88788f; }
     .about { background: #f3ecfa; }
     .about p { max-width: 620px; margin: 12px auto; line-height: 1.8; color: #5c4b67; }
