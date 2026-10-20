@@ -450,12 +450,13 @@ THE NEW DROP ✦  </p>
 let cartItems = [];
 
 function addToCart(productName) {
-  cartItems.push(productName);
+  cartItems.push({ name: productName, quantity: 1 });
   updateCart();
 }
 
 function updateCart() {
-  document.getElementById("cart-count").textContent = cartItems.length;
+  document.getElementById("cart-count").textContent =
+    cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const cartItemsBox = document.getElementById("cart-items");
   const emptyMessage = document.getElementById("cart-empty");
@@ -470,22 +471,59 @@ function updateCart() {
   emptyMessage.style.display = "none";
 
   cartItems.forEach(function(item, index) {
-    const product = document.createElement("p");
-    product.textContent = "♡ " + item + " ";
+    const product = document.createElement("div");
+    product.style.margin = "18px auto";
+    product.style.padding = "12px";
+    product.style.maxWidth = "400px";
+    product.style.background = "#fff";
+    product.style.borderRadius = "12px";
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.type = "button";
+    const name = document.createElement("p");
+    name.textContent = "♡ " + item.name;
+    product.appendChild(name);
 
-    removeButton.onclick = function() {
+    const minus = document.createElement("button");
+    minus.textContent = "−";
+    minus.type = "button";
+    minus.style.margin = "5px";
+    minus.onclick = function() {
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        cartItems.splice(index, 1);
+      }
+      updateCart();
+    };
+
+    const quantity = document.createElement("span");
+    quantity.textContent = " " + item.quantity + " ";
+    
+    const plus = document.createElement("button");
+    plus.textContent = "+";
+    plus.type = "button";
+    plus.style.margin = "5px";
+    plus.onclick = function() {
+      item.quantity++;
+      updateCart();
+    };
+
+    const remove = document.createElement("button");
+    remove.textContent = "Remove";
+    remove.type = "button";
+    remove.style.margin = "5px";
+    remove.onclick = function() {
       cartItems.splice(index, 1);
       updateCart();
     };
 
-    product.appendChild(removeButton);
+    product.appendChild(minus);
+    product.appendChild(quantity);
+    product.appendChild(plus);
+    product.appendChild(remove);
     cartItemsBox.appendChild(product);
   });
 }
+
 
 </script>
 
