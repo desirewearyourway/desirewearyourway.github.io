@@ -50,23 +50,51 @@ nav a:hover {
   border-radius: 999px;
 }
 
+
 #cart-count {
-  
+  display: inline-grid;
+  place-items: center;
+  min-width: 21px;
+  height: 21px;
+  margin-left: 4px;
+  padding: 0 5px;
+  background: #291936;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
 .add-to-cart {
   display: block;
   width: 100%;
-  margin-top: 16px;
-  padding: 13px;
-  background: #291936;
-  color: white;
-  border: 1px solid #291936;
+  margin-top: 18px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #291936, #74518e);
+  color: #ffffff;
+  border: 1px solid #74518e;
   border-radius: 999px;
+  font-family: Arial, sans-serif;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   cursor: pointer;
-  transition: 0.25s ease;
+  box-shadow: 0 5px 15px rgba(41, 25, 54, 0.15);
+  transition: all 0.3s ease;
 }
+
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #9870bd, #cda6f0);
+  color: #291936;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(116, 81, 142, 0.3);
+}
+
+  background: linear-gradient(135deg, #9870bd, #cda6f0);
+  color: #291936;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(116, 81, 142, 0.3);
+}
+
 
 .add-to-cart:hover {
   background: #74518e;
