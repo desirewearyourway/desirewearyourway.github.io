@@ -463,15 +463,30 @@ THE NEW DROP ✦  </p>
   </footer>
   
 <script>
-  let cartCount = 0;
+  
 
-  function addToCart(productName) {
-    cartCount++;
+let cartItems = [];
 
-    document.getElementById("cart-count").textContent = cartCount;
+function addToCart(productName) {
+  cartItems.push(productName);
 
-    alert(productName + " added to your cart! 💜");
-  }
+  document.getElementById("cart-count").textContent = cartItems.length;
+
+  const cartItemsBox = document.getElementById("cart-items");
+  const emptyMessage = document.getElementById("cart-empty");
+
+  emptyMessage.style.display = "none";
+  cartItemsBox.innerHTML = "";
+
+  cartItems.forEach(function(item) {
+    const product = document.createElement("p");
+    product.textContent = "♡ " + item;
+    cartItemsBox.appendChild(product);
+  });
+
+  alert(productName + " added to your cart! 💜");
+}
+
 </script>
 
 </body>
