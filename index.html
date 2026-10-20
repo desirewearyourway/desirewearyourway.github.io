@@ -446,26 +446,45 @@ THE NEW DROP ✦  </p>
 <script>
   
 
+
 let cartItems = [];
 
 function addToCart(productName) {
   cartItems.push(productName);
+  updateCart();
+}
 
+function updateCart() {
   document.getElementById("cart-count").textContent = cartItems.length;
 
   const cartItemsBox = document.getElementById("cart-items");
   const emptyMessage = document.getElementById("cart-empty");
 
-  emptyMessage.style.display = "none";
   cartItemsBox.innerHTML = "";
 
-  cartItems.forEach(function(item) {
+  if (cartItems.length === 0) {
+    emptyMessage.style.display = "block";
+    return;
+  }
+
+  emptyMessage.style.display = "none";
+
+  cartItems.forEach(function(item, index) {
     const product = document.createElement("p");
-    product.textContent = "♡ " + item;
+    product.textContent = "♡ " + item + " ";
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.type = "button";
+
+    removeButton.onclick = function() {
+      cartItems.splice(index, 1);
+      updateCart();
+    };
+
+    product.appendChild(removeButton);
     cartItemsBox.appendChild(product);
   });
-
-  alert(productName + " added to your cart! 💜");
 }
 
 </script>
