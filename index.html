@@ -633,6 +633,15 @@ function openCart() {
   document.getElementById("cart-overlay").classList.add("open");
   document.body.classList.add("cart-open");
 }
+  
+function closeCart() {
+  document.getElementById("cart-drawer").classList.remove("open");
+  document.getElementById("cart-overlay").classList.remove("open");
+  document.body.classList.remove("cart-open");
+}
+
+document.getElementById("cart-overlay").addEventListener("click", closeCart);
+
 
 function closeCart() {
   document.getElementById("cart-drawer").classList.remove("open");
