@@ -9,6 +9,111 @@
   <meta name="theme-color" content="#f6efff">
   <title>DESIRE | Wear Your Way</title>
   <style>
+  
+/* DESIRE sliding cart drawer */
+#cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 15, 35, 0.48);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+#cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+#cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(420px, 100%);
+  height: 100vh;
+  height: 100dvh;
+  padding: 28px 22px;
+  background: #fcfaff;
+  box-shadow: -10px 0 35px rgba(41, 25, 54, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(105%);
+  transition: transform 0.35s ease;
+  text-align: left;
+}
+
+#cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eadcf5;
+}
+
+.cart-header h2 {
+  margin: 6px 0;
+  font-size: 23px;
+}
+
+.cart-close {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f3eaff;
+  color: #291936;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#cart-empty {
+  color: #74667c;
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#cart-drawer #cart-items > div {
+  max-width: none !important;
+  margin: 16px 0 !important;
+  padding: 16px !important;
+  border: 1px solid #eadcf5;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 18px rgba(80, 40, 100, 0.06);
+}
+
+#cart-drawer #cart-items p {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+#cart-drawer #cart-items button {
+  padding: 7px 11px;
+  border: 1px solid #e5d5f3;
+  border-radius: 8px;
+  background: #f3eaff;
+  color: #291936;
+  cursor: pointer;
+}
+
+#cart-drawer #cart-items button:last-child {
+  background: #291936;
+  color: #fff;
+}
+
+body.cart-open {
+  overflow: hidden;
+}
+</style>
+
+  <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -307,11 +412,12 @@ transform: translateY(-18px);  }
   <a href="#about">Our Story</a>
   <a href="#contact">Contact</a>
 
-  <a href="#cart" class="cart-link">
-    🛍️ Cart <span id="cart-count">0</span>
-  </a>
-</nav>
+ 
+<button type="button" class="cart-link" onclick="openCart()" style="cursor: pointer; font-family: Arial, sans-serif;">
+  🛍️ Cart <span id="cart-count">0</span>
+</button>
 
+</nav>
   </header>
 
   <main>
@@ -344,12 +450,22 @@ THE NEW DROP ✦  </p>
 </section>
     
 
-<section id="cart" style="padding: 65px 7%; text-align: center; background: #f3eaff;">
-  <p class="section-label">YOUR PICKS</p>
-  <h2>YOUR SHOPPING CART 🛍️</h2>
+
+<div id="cart-overlay" onclick="closeCart()"></div>
+
+<aside id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-header">
+    <div>
+      <p class="section-label">YOUR PICKS</p>
+      <h2>YOUR CART 🛍️</h2>
+    </div>
+    <button class="cart-close" onclick="closeCart()" aria-label="Close cart">×</button>
+  </div>
+
   <p id="cart-empty">Your cart is waiting for something you love 💜</p>
   <div id="cart-items"></div>
-</section>
+</aside>
+
 
     <section id="collection">
       <p class="section-label">MADE FOR YOUR EVERYDAY</p>
@@ -511,6 +627,22 @@ THE NEW DROP ✦  </p>
 <script>
   
 
+
+function openCart() {
+  document.getElementById("cart-drawer").classList.add("open");
+  document.getElementById("cart-overlay").classList.add("open");
+  document.body.classList.add("cart-open");
+}
+
+function closeCart() {
+  document.getElementById("cart-drawer").classList.remove("open");
+  document.getElementById("cart-overlay").classList.remove("open");
+  document.body.classList.remove("cart-open");
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeCart();
+});
 
 let cartItems = [];
 
