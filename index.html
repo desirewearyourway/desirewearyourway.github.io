@@ -668,6 +668,16 @@ let cartItems = [];
 function addToCart(productName) {
   cartItems.push({ name: productName, quantity: 1 });
   updateCart();
+
+  if (typeof gtag === "function") {
+    gtag("event", "add_to_cart", {
+      currency: "INR",
+      items: [{
+        item_name: productName,
+        quantity: 1
+      }]
+    });
+  }
 }
 
 function updateCart() {
