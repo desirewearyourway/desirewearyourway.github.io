@@ -125,22 +125,20 @@ body.cart-open {
 
 
 
-.hero-slide .eyebrow {
-  margin-top: 22px;
-}
 .hero {
   position: relative;
   overflow: hidden;
   min-height: 0;
-  padding: 0 0 12px;
+  padding: 0;
   text-align: center;
   background: #fcfaff;
-  animation: none;
 }
+
 .hero-slide {
   display: none;
   width: 100%;
   text-align: center;
+  animation: slideIn 0.65s ease both;
 }
 
 .hero-slide.active {
@@ -159,71 +157,11 @@ body.cart-open {
 
 .slider-controls {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 20px;
-  padding: 12px 0;
-}
-
-@media (max-width: 600px) {
-  .hero {
-    min-height: 0;
-    padding: 0 0 12px;
-  }
-
-  .hero-slide img {
-    width: 100%;
-    max-height: none;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-.hero-slide {
-  display: none;
-  animation: slideIn 0.65s ease both;
-}
-
-.hero-slide.active {
-  display: block;
-}
-
-.hero-slide img {
-  display: block;
-  width: 100%;
-  height: auto;max-height: 650px;
-  object-fit: contain;
-  object-position: center;
-  margin: 0 auto;
-}
-
-
-.hero-slide {
-  display: none;
-  animation: slideIn 0.65s ease both;
-}
-
-.hero-slide.active {
-  display: block;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-  margin-top: 30px;
+  margin-top: 8px;
+  padding: 8px 0;
 }
 
 .slider-controls button {
@@ -243,14 +181,32 @@ body.cart-open {
   color: #291936;
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hero h1 {
   animation: none;
 }
 
 @media (max-width: 600px) {
   .hero {
-    min-height: 360px;
-    padding: 55px 16px 65px;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 }
   </style>
