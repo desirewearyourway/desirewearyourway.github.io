@@ -677,10 +677,13 @@ function addToCart(productName) {
   if (typeof gtag === "function") {
     gtag("event", "add_to_cart", {
       currency: "INR",
-      items: [{
-        item_name: productName,
-        quantity: 1
-      }]
+    items: [{
+  item_id: productName === "THE EVERYDAY TEE" ? "TEE001" :
+           productName === "THE STATEMENT TEE" ? "TEE002" :
+           "TEE003",
+  item_name: productName,
+  quantity: 1
+}]
     });
   }
 }
