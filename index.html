@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>THE EVERYDAY TEE
-  <meta name
+<head>  <meta name
     ="google-site-verification" content="XOcjF_MktMJT60QJ523V1RPaZScADaUiifnWFWYtLn0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -198,11 +197,6 @@ body.cart-open {
   object-position: center;
   margin: 0 auto;
 }
-@media (max-width: 600px) {
-  .hero-slide img {
-    height: 230px;
-  }
-}
 
 
 .hero-slide {
@@ -261,6 +255,58 @@ body.cart-open {
   }
 }
   </style>
+  /* DESIRE hero slider responsive fix */
+.hero {
+  min-height: 0;
+  padding: 0 0 18px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  display: none;
+  width: 100%;
+  animation: none;
+}
+
+.hero-slide.active {
+  display: block;
+}
+
+.hero-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.hero-slide .btn {
+  margin-top: 18px;
+}
+
+.slider-controls {
+  margin-top: 16px;
+  padding: 0 0 12px;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding: 0 0 14px;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .slider-controls {
+    margin-top: 14px;
+  }
+}
 
   <style>
     * { box-sizing: border-box; }
