@@ -124,7 +124,11 @@ body.cart-open {
   overflow: hidden;
 }
 
-```css
+
+
+.hero-slide .eyebrow {
+  margin-top: 22px;
+}
 .hero {
   position: relative;
   overflow: hidden;
@@ -134,7 +138,47 @@ body.cart-open {
   background: #fcfaff;
   animation: none;
 }
-```
+.hero-slide {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-slide.active {
+  display: block;
+}
+
+.hero-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 0;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+    padding: 0 0 12px;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+  }
+}
 
 .hero-slide {
   display: none;
@@ -154,11 +198,6 @@ body.cart-open {
   object-position: center;
   margin: 0 auto;
 }
-
-.hero-slide .eyebrow {
-  margin-top: 22px;
-}
-
 @media (max-width: 600px) {
   .hero-slide img {
     height: 230px;
@@ -336,7 +375,6 @@ nav a:hover {
 
 
 
-```css
 .hero {
   position: relative;
   overflow: hidden;
@@ -346,7 +384,6 @@ nav a:hover {
   background: #fcfaff;
   animation: none;
 }
-```
   @keyframes heroGlow {
   0%, 100% {
     background-position: 0% 50%;
@@ -506,7 +543,6 @@ transform: translateY(-18px);  }
     @media (max-width: 650px) {
       header { flex-direction: column; text-align: center; }
       nav { justify-content: center; gap: 15px; }
-      .hero { padding: 70px 18px; }
       .products { grid-template-columns: 1fr; }
       section { padding: 50px 6%; }
     }
@@ -536,7 +572,6 @@ transform: translateY(-18px);  }
   </header>
 
   <main>
-```html
 <div class="hero" id="home">
 
   <div class="hero-slide active">
@@ -561,7 +596,6 @@ transform: translateY(-18px);  }
   </div>
 
 </div>
-```
 
 
     <section style="padding: 38px 7%; text-align: center; background: #291936; color: #fff;">
