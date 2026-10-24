@@ -873,6 +873,7 @@ function updateCart() {
 <script>
 
     
+
 <script>
 (function () {
   const slides = document.querySelectorAll(".hero-slide");
@@ -903,6 +904,12 @@ function updateCart() {
     clearInterval(timer);
     timer = setInterval(() => showSlide(current + 1), 5000);
   };
+
+  showSlide(0);
+  timer = setInterval(() => showSlide(current + 1), 5000);
+})();
+</script>
+
 
 
    
