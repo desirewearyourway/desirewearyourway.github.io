@@ -881,10 +881,18 @@ function updateCart() {
   function showSlide(index) {
     current = (index + slides.length) % slides.length;
 
-    slides.forEach((slide, i) => {
-      slide.style.display = i === current ? "block" : "none";
-      slide.classList.toggle("active", i === current);
-    });
+slides.forEach((slide, i) => {
+  slide.style.display = "block";
+  slide.style.position = "absolute";
+  slide.style.top = "0";
+  slide.style.left = "0";
+  slide.style.width = "100%";
+  slide.style.transition = "transform 0.7s ease, opacity 0.7s ease";
+  slide.style.transform = i === current ? "translateX(0)" : "translateX(100%)";
+  slide.style.opacity = i === current ? "1" : "0";
+  slide.style.zIndex = i === current ? "2" : "1";
+  slide.classList.toggle("active", i === current);
+});
 
     if (counter) {
       counter.textContent =
