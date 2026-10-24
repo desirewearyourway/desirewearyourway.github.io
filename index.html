@@ -123,12 +123,14 @@ body.cart-open {
 }
 
 .hero-slide {
-  display: none;
+  display: none !important;
   width: 100%;
   text-align: center;
-  animation: slideIn 0.65s ease both;
 }
 
+.hero-slide.active {
+  display: block !important;
+}
 .hero-slide.active {
   display: block;
 }
