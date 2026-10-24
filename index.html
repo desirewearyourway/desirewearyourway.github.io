@@ -121,18 +121,22 @@ body.cart-open {
   text-align: center;
   background: #fcfaff;
 }
-
 .hero-slide {
-  display: none !important;
+  display: none;
   width: 100%;
   text-align: center;
 }
 
 .hero-slide.active {
-  display: block !important;
-}
-.hero-slide.active {
   display: block;
+}
+
+.hero-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
 }
 .hero-slide img {
   display: block;
@@ -510,8 +514,8 @@ transform: translateY(-18px);  }
 </nav>
   </header>
 
-  <main>
-<div class="h
+<main>
+<div class="hero" id="home">
   <div class="hero-slide active">
     <img src="desire-hero-white.png" alt="DESIRE white T-shirt fashion banner">
     <a class="btn" href="#collection">EXPLORE THE COLLECTION</a>
@@ -867,30 +871,7 @@ function updateCart() {
 
 </script>
 <script>
-let currentSlide = 0;
-const slides = document.querySelectorAll(".hero-slide");
-const slideCount = document.getElementById("slide-count");
 
-function showSlide(index) {
-  currentSlide = (index + slides.length) % slides.length;
-
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === currentSlide);
-  });
-
-  slideCount.textContent =
-    String(currentSlide + 1).padStart(2, "0") + " / 03";
-}
-
-function changeSlide(direction) {
-  showSlide(currentSlide + direction);
-}
-
-showSlide(0);
-  setInterval(function() {
-  changeSlide(1);
-}, 5000);
-</script>
     
 <script>
 (function () {
