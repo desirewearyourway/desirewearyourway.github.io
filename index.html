@@ -121,15 +121,13 @@ body.cart-open {
   text-align: center;
   background: #fcfaff;
 }
+
 .hero-slide {
-  display: none;
+  display: block;
   width: 100%;
   text-align: center;
 }
 
-.hero-slide.active {
-  display: block;
-}
 
 .hero-slide img {
   display: block;
@@ -878,21 +876,36 @@ function updateCart() {
   let current = 0;
   let timer;
 
-  function showSlide(index) {
-    current = (index + slides.length) % slides.length;
 
-slides.forEach((slide, i) => {
-  slide.style.display = "block";
-  slide.style.position = "absolute";
-  slide.style.top = "0";
-  slide.style.left = "0";
-  slide.style.width = "100%";
-  slide.style.transition = "transform 0.7s ease, opacity 0.7s ease";
-  slide.style.transform = i === current ? "translateX(0)" : "translateX(100%)";
-  slide.style.opacity = i === current ? "1" : "0";
-  slide.style.zIndex = i === current ? "2" : "1";
-  slide.classList.toggle("active", i === current);
-});
+function showSlide(index) {
+  const previous = current;
+  current = (index + slides.length) % slides.length;
+
+  slides.forEach((slide, i) => {
+    slide.style.display = "block";
+    slide.style.position = "absolute";
+    slide.style.top = "0";
+    slide.style.left = "0";
+    slide.style.width = "100%";
+    slide.style.transition = "transform 0.7s ease, opacity 0.7s ease";
+    slide.style.opacity = i === current ? "1" : "0";
+    slide.style.transform =
+      i === current
+        ? "translateX(0)"
+        : i === previous
+          ? (current > previous ? "translateX(-100%)" : "translateX(100%)")
+          : "translateX(100%)";
+    slide.style.zIndex = i === current ? "2" : "1";
+    slide.classList.toggle("active", i === current);
+  });
+
+  if (counter) {
+    counter.textContent =
+      String(current + 1).padStart(2, "0") +
+      " / " + String(slides.length).padStart(2, "0");
+  }
+}
+
 
     if (counter) {
       counter.textContent =
