@@ -889,5 +889,37 @@ showSlide(0);
   changeSlide(1);
 }, 5000);
 </script>
+    <script>
+(function () {
+  const slides = document.querySelectorAll(".hero-slide");
+  const counter = document.getElementById("slide-count");
+
+  if (!slides.length) return;
+
+  let current = 0;
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === current);
+    });
+
+    if (counter) {
+      counter.textContent =
+        String(current + 1).padStart(2, "0") +
+        " / " +
+        String(slides.length).padStart(2, "0");
+    }
+  }
+
+  window.changeSlide = function (direction) {
+    showSlide(current + direction);
+  };
+
+  showSlide(0);
+  setInterval(() => showSlide(current + 1), 5000);
+})();
+</script>
 </body>
 </html>
