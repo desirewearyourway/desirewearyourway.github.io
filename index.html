@@ -131,7 +131,8 @@ position: center;
 }
   .hero h1 {
   color: #9870bd !important;
-  background: linear-gradient(
+  background: linear-gradie
+      nt(
     90deg,
     #291936,
     #cda6f0,
@@ -196,19 +197,23 @@ position: center;
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
- /* DESIRE hero text animation */
+/* DESIRE hero text animation */
 .hero#home h1 {
   color: #000 !important;
   -webkit-text-fill-color: #000 !important;
   background: none !important;
-  animation: desireTextFloat 3s ease-in-out infinite;
+  display: inline-block;
+  animation: desireTextFloat 2s ease-in-out infinite !important;
 }
 
 @keyframes desireTextFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
-
 /* Move hero content slightly down */
 .hero#home {
   padding-top: 35px !important;
