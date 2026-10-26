@@ -838,7 +838,26 @@ document.addEventListener("keydown", function(event) {
 });
 
 let cartItems = [];
+document.querySelectorAll(".product").forEach(function(card) {
+  card.addEventListener("click", function() {
+    if (typeof gtag !== "function") return;
 
+    const heading = card.querySelector("h3");
+    if (!heading) return;
+
+    const name = heading.textContent.trim();
+    const itemId = card.id === "white-tee" ? "TEE001" :
+                   card.id === "black-tee" ? "TEE002" : "TEE003";
+
+    gtag("event", "view_item", {
+      currency: "INR",
+      items: [{
+        item_id: itemId,
+        item_name: name
+      }]
+    });
+  }, { once: true });
+});
 function addToCart(productName) {
   cartItems.push({ name: productName, quantity: 1 });
   updateCart();
