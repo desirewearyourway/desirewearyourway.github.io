@@ -147,7 +147,26 @@ position: center;
     background-position: 300% center;
   }
 }
-     
+  .hero h1 {
+  color: #9870bd !important;
+  background: linear-gradient(
+    90deg,
+    #291936,
+    #cda6f0,
+    #74518e,
+    #291936
+  ) !important;
+  background-size: 300% 100% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: desireColorMove 3s linear infinite !important;
+}
+
+@keyframes desireColorMove {
+  from { background-position: 0% center; }
+  to { background-position: 300% center; }
+}   
   </style>
 
 
