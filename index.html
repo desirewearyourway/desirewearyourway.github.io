@@ -174,7 +174,30 @@ position: center;
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 } 
-  </style>
+.hero#home {
+  background: linear-gradient(
+    120deg,
+    #cda6f0,
+    #f6efff,
+    #b995df,
+    #cda6f0
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: lavenderBackgroundMove 8s ease infinite !important;
+}
+
+.hero#home h1 {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  background: none !important;
+}
+
+@keyframes lavenderBackgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} 
+ </style>
 
 
   <style>
