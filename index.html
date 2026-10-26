@@ -123,7 +123,31 @@ min-height: 40vw;
 }
 position: center;
 }
+
+     /* Moving lavender text effect */
+.hero h1 {
+  background: linear-gradient(
+    90deg,
+    #291936,
+    #9870bd,
+    #cda6f0,
+    #74518e,
+    #291936
+  );
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: desireColorMove 4s linear infinite;
 }
+
+@keyframes desireColorMove {
+  to {
+    background-position: 300% center;
+  }
+}
+     
   </style>
 
 
