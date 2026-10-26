@@ -199,17 +199,32 @@ position: center;
 }
 /* DESIRE hero text animation */
 .hero#home h1 {
-  color: #000 !important;
-  -webkit-text-fill-color: #000 !important;
-  background: none !important;
   display: inline-block;
-  animation: desireTextFloat 2s ease-in-out infinite !important;
+  color: #291936 !important;
+  -webkit-text-fill-color: transparent !important;
+  background: linear-gradient(
+    90deg,
+    #291936,
+    #9870bd,
+    #cda6f0,
+    #291936
+  ) !important;
+  background-size: 300% auto !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: desireColorMove 3s linear infinite,
+             desireTextFloat 2s ease-in-out infinite !important;
+}
+
+@keyframes desireColorMove {
+  from { background-position: 0% center; }
+  to { background-position: 300% center; }
 }
 
 @keyframes desireTextFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
   50% {
     transform: translateY(-8px);
   }
