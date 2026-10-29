@@ -876,11 +876,16 @@ function addToCart(productName) {
         });
   }
 }
-
 function demoCheckout() {
   if (typeof gtag === "function") {
     gtag("event", "begin_checkout", {
-      currency: "INR"
+      currency: "INR",
+      items: cartItems.map(function(item) {
+        return {
+          item_name: item.name,
+          quantity: item.quantity
+        };
+      })
     });
   }
 
