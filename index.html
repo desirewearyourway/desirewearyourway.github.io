@@ -873,8 +873,10 @@ function addToCart(productName) {
   item_name: productName,
   quantity: 1
 }]
-    });
+        });
   }
+}
+
 function demoCheckout() {
   if (typeof gtag === "function") {
     gtag("event", "begin_checkout", {
