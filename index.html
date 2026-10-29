@@ -875,11 +875,15 @@ function addToCart(productName) {
 }]
     });
   }
-}
 function demoCheckout() {
+  if (typeof gtag === "function") {
+    gtag("event", "begin_checkout", {
+      currency: "INR"
+    });
+  }
+
   alert("Checkout demo 💜 Real payment is not connected yet.");
 }
-
 function updateCart() {
   document.getElementById("cart-count").textContent =
     cartItems.reduce((total, item) => total + item.quantity, 0);
